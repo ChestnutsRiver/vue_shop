@@ -73,7 +73,7 @@ export default {
         if (!valid) return
         const { data: res } = await this.$http.post('login', this.loginForm)
         if (res.meta.status !== 200) return this.$message.error('登录失败')
-        this.$message.success('登陆成功')
+        this.$message.success('登录成功')
         // console.log(res)
         // 1.将登陆成功之后的token，保存到客户端的 sessionStorage 中
         //   1.1 项目中除了登录之外的其他API接口，必须在登陆之后才能访问
