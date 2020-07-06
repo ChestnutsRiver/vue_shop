@@ -71,7 +71,7 @@
           <template v-slot="scope">
             <el-button
               type="primary"
-              icon="el-icon-editRole"
+              icon="el-icon-edit"
               size="mini"
               @click="showEditRoleDialog(scope.row.id)"
             >编辑</el-button>
