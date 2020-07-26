@@ -64,6 +64,9 @@ export default {
       }
     }
   },
+  created() {
+    this.welcome()
+  },
   methods: {
     resetLoginForm () {
       this.$refs.loginFormRef.resetFields()
@@ -82,6 +85,11 @@ export default {
         // 2.通过编程式导航跳转到后台主页，路由地址是 /home
         this.$router.push('/home')
       })
+    },
+    welcome() {
+      console.log(
+        '商城后台管理系统，使用vue全家桶+elementUI+axios搭建的SPA，数据库和后台部署在本服务器。完成了用户管理，权限管理，商品管理，订单管理和数据统计的功能，包含各部分前端向数据库的增删改查的请求。——————by栗子'
+      )
     }
   }
 }

@@ -68,7 +68,7 @@
         <el-form-item label="商品分类：" prop="cat_name">
           <el-input v-model="addCateForm.cat_name"></el-input>
         </el-form-item>
-        <el-form-item label="负级分类：">
+        <el-form-item label="父级分类：">
           <!-- options 用来指定数据源 -->
           <!-- props 用来指定配置对象 -->
           <el-cascader
@@ -184,9 +184,9 @@ export default {
       editCateDialogVisible: false,
       editCateForm: {
         cat_name: ''
-      }
+      },
       // 当前分类的Id值
-      // cateId: 0
+      cateId: 0
     }
   },
   created() {
@@ -270,7 +270,7 @@ export default {
     },
     // 点击按钮，打开修改分类对话框
     showEditCateDialog(id) {
-      // this.cateId = id
+      this.cateId = id
       this.$http.get('categories/' + id).then(res => {
         if (res.data.meta.status !== 200) {
           this.$message.error('查询分类信息失败')
@@ -311,6 +311,7 @@ export default {
               return this.$message.error('删除分类失败!')
             }
             this.$message.success('删除分类成功!')
+            console.log(cate)
             this.getCateList()
           })
         })
